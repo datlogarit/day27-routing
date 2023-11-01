@@ -1,10 +1,24 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { guardsGuard } from './guards.guard';
+const routes: Routes = [
+  {
+    path:'admin',
+    loadChildren:()=>import('./admin/admin.module').then((m)=>m.AdminModule),
+    canActivate:[guardsGuard]
+  },
+  {
+    path:'',
+    redirectTo:'article',
+    pathMatch:'full'
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy:PreloadAllModules,
+   // enableTracing:true
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

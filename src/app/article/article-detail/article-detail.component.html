@@ -1,0 +1,11 @@
+<div *ngIf="article$|async as article, else loadingTmpl">
+bài viết: {{article.title}}
+<br>
+<br>
+{{article.content}}
+<br>
+<div class="btn-link btn" routerLink="edit">Edit {{article.slug}}</div>
+</div>
+<ng-template #loadingTmpl>
+  loading...
+</ng-template>

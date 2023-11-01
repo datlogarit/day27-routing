@@ -1,0 +1,14 @@
+<span>quản lý thông tin user</span>
+<div *ngIf="article$ |async as articles, else loading">
+  <div *ngFor="let article of articles">
+    người dùng {{article.id}}
+    <br>
+    {{article.title}} - {{article.author}}
+    <br>
+    <button class="btn btn-primary">edit {{article.title}}</button>
+    <button class="btn btn-danger">delete {{article.title}}</button>
+  </div>
+</div>
+<ng-template #loading>
+loading...
+</ng-template>

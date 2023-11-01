@@ -1,0 +1,15 @@
+<h3>
+  article page
+</h3>
+
+<div *ngIf="article$|async as articles else loadingTmpl">
+  <div *ngFor="let article of articles">
+    <div>
+      {{article.title}} -- {{article.author}} (author)
+    </div>
+    <button class="btn btn-primary" [routerLink]="article.slug">xem {{article.title}}</button>
+  </div>
+</div>
+<ng-template #loadingTmpl>
+loading...
+</ng-template>

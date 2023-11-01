@@ -1,0 +1,8 @@
+<p>article-edit works!</p>
+<div *ngIf="slug$|async as slug">
+  edit {{slug}}
+  <br>
+  isEditting:{{editting}}
+  <br>
+<button class="btn btn-warning"(click)="editting = !editting">toggle_editting</button>
+</div>
