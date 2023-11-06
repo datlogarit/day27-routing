@@ -9,6 +9,14 @@
     <button class="btn btn-danger">delete {{article.title}}</button>
   </div>
 </div>
+<br><br>
+<!-- chung ta se khong quan ly #toggle o trong template ntn boi quan ly trong class moi
+manh me va la chan ai -->
+<!-- nen t se su dung viewChild de truy van #toggle nhe -->
+<button (click)=" toggleInside()" class="btn btn-primary">toggle</button>
+<app-toggle ></app-toggle>
+<br>
+<input type="text" #inputElm placeholder="doan dat">
 <ng-template #loading>
 loading...
 </ng-template>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Injectable, inject } from '@angular/core';
+import { AuthorService } from './author.service';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  login:boolean = true
+  public progress_appcpn = 31;
+  constructor(private authorService:AuthorService){}
   title = 'routing';
   toggle_login(){
-    this.login = !this.login
-    console.log('login is:',this.login)
+    this.authorService.login = !this.authorService.login
   }
 }

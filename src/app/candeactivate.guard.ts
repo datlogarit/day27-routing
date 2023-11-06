@@ -1,6 +1,8 @@
 import { CanDeactivateFn } from '@angular/router';
-import { AdminModule } from './admin/admin.module';
 
-export const candeactivateGuard: CanDeactivateFn<AdminModule> = (component, currentRoute, currentState, nextState) => {
-  return true;
+import { ArticleEditComponent } from './article/article-edit/article-edit.component';
+
+
+export const candeactivateGuard: CanDeactivateFn<ArticleEditComponent> = (component:ArticleEditComponent, currentRoute, currentState, nextState) => {
+  return component.editting;
 };
